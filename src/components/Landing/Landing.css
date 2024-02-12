@@ -9,6 +9,7 @@
 .greeting-line {
   display: inline-block;
   font-size: xx-large;
+  font-weight: bolder;
   overflow: hidden;
 }
 

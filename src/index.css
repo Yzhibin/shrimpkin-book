@@ -1,14 +1,14 @@
-/* EN: DM Serif Display */
+/* EN: Playfair Display */
 @font-face {
-  font-family: 'DM Serif Display';
+  font-family: 'Playfair Display';
   font-style: normal;
-  src: url('assets/fonts/DM_Serif_Display/DMSerifDisplay-Regular.ttf');
+  src: url('assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf');
 }
 
 @font-face {
-  font-family: 'DM Serif Display';
+  font-family: 'Playfair Display';
   font-style: italic;
-  src: url('assets/fonts/DM_Serif_Display/DMSerifDisplay-Italic.ttf');
+  src: url('assets/fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf');
 }
 
 /* CH: Noto Serif SC */
@@ -84,7 +84,8 @@ body {
 }
 
 .lang-en {
-  font-family: 'DM Serif Display';
+  font-family: 'Playfair Display';
+  font-weight: 500;
 }
 
 .inverted {
