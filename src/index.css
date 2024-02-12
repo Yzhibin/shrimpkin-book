@@ -1,0 +1,86 @@
+/* EN: DM Serif Display */
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  src: url('assets/fonts/DM_Serif_Display/DMSerifDisplay-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: italic;
+  src: url('assets/fonts/DM_Serif_Display/DMSerifDisplay-Italic.ttf');
+}
+
+/* CH: Noto Serif SC */
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 200;
+  src: url('assets/fonts/Noto_Serif_SC/NotoSerifSC-ExtraLight.otf');
+}
+
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 300;
+  src: url('assets/fonts/Noto_Serif_SC/NotoSerifSC-Light.otf');
+}
+
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/Noto_Serif_SC/NotoSerifSC-Regular.otf');
+}
+
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 500;
+  src: url('assets/fonts/Noto_Serif_SC/NotoSerifSC-Medium.otf');
+}
+
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 600;
+  src: url('assets/fonts/Noto_Serif_SC/NotoSerifSC-SemiBold.otf');
+}
+
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/Noto_Serif_SC/NotoSerifSC-Bold.otf');
+}
+
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 900;
+  src: url('assets/fonts/Noto_Serif_SC/NotoSerifSC-Black.otf');
+}
+
+body {
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  font-family: DM Serif Display;
+  font-weight: 400;
+  background-color: #fff;
+  color: #242424;
+  height: 100%;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.inverted {
+  color: #fff;
+  background-color: #242424;
+}
