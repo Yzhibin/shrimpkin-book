@@ -68,7 +68,6 @@ body {
 }
 
 :root {
-  font-family: DM Serif Display;
   font-weight: 400;
   background-color: #fff;
   color: #242424;
@@ -78,6 +77,14 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.lang-zh {
+  font-family: 'Noto Serif SC';
+}
+
+.lang-en {
+  font-family: 'DM Serif Display';
 }
 
 .inverted {

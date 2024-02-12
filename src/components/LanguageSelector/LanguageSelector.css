@@ -1,0 +1,34 @@
+.language-selector {
+  height: 24px;
+  width: 100px;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.language-selector-element-en {
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+  line-height: 24px;
+  border: 1px solid #242424;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+
+  font-family: 'DM Serif Display' !important;
+}
+
+.language-selector-element-zh {
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+  line-height: 24px;
+  border: 1px solid #242424;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+
+  font-family: 'Noto Serif SC' !important;
+  font-weight: 700;
+}

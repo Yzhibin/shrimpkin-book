@@ -1,0 +1,42 @@
+.landing {
+  height: 100%;
+}
+
+.greeting-container {
+  padding: 15% 20%;
+}
+
+.greeting-line {
+  display: inline-block;
+  font-size: xx-large;
+  overflow: hidden;
+}
+
+.typewriter {
+  text-align: left;
+  overflow: hidden;
+  border-right: 0.1em solid #fff;
+  font-size: inherit;
+  width: 0;
+  animation:
+    typing 1.2s steps(12, end) forwards,
+    blink 1s infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: #fff;
+  }
+}
