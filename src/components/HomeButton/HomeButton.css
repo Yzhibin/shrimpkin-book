@@ -1,0 +1,20 @@
+.home-button {
+  height: 24px;
+  width: 72px;
+  line-height: 24px;
+  font-size: 18px;
+
+  position: absolute;
+  top: 32px;
+  left: 24px;
+
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+.home-button:hover {
+  color: white;
+  background-color: var(--black);
+}

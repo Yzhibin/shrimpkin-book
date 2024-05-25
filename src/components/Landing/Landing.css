@@ -3,7 +3,7 @@
 }
 
 .greeting-container {
-  padding: 15% 20%;
+  padding: 15% 10% 5%;
 }
 
 .greeting-line {
@@ -16,20 +16,26 @@
 .typewriter {
   text-align: left;
   overflow: hidden;
-  border-right: 0.1em solid #fff;
+  border-right: 0.1em solid white;
   font-size: inherit;
-  width: 0;
+  height: 46px;
   animation:
-    typing 1.2s steps(12, end) forwards,
+    typing 12s steps(12, end) infinite,
     blink 1s infinite;
 }
 
 @keyframes typing {
-  from {
+  0% {
     width: 0;
   }
-  to {
+  5% {
     width: 100%;
+  }
+  95% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
   }
 }
 
@@ -38,6 +44,6 @@
     border-color: transparent;
   }
   to {
-    border-color: #fff;
+    border-color: white;
   }
 }

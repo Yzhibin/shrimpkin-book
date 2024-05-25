@@ -1,0 +1,11 @@
+.copyright {
+  height: 24px;
+  width: 100%;
+  line-height: 24px;
+
+  position: absolute;
+  top: 32px;
+
+  text-align: center;
+  font-weight: 700;
+}

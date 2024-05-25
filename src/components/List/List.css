@@ -1,10 +1,14 @@
+.list-container {
+  margin: 5vw;
+}
+
 .list-item {
   cursor: pointer;
   margin: 8px;
-  font-size: 1.2em;
+  font-size: 1.4em;
   transition: all 0.5s;
 }
 .list-item:hover {
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.6em;
 }

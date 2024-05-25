@@ -1,0 +1,17 @@
+.album-backdrop {
+  background-color: var(--black);
+  width: 100%;
+  min-height: 86vw;
+  margin-top: 15vh;
+}
+
+/* 78vw = 24 * 3 + 1 * 6 */
+.photo {
+  background-color: white;
+  width: 24vw;
+  margin: 1vw;
+}
+
+.photos-area {
+  padding: 4vw 11vw;
+}

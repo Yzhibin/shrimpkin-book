@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+# Shrimpkin Book
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Every photographer probably dreams of publishing their own photography book. After years of shooting on film, I’ve got so many pictures I want to share with everyone, ideally printed on paper. While that dream is still _a bit_ out of reach, I made this app as a digital version of my own photography book, simply titled The Shrimpkin Book.
 
-Currently, two official plugins are available:
+### [_The Shrimpkin Book_]()
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Copyright
 
-## Expanding the ESLint configuration
+All photographs on this website are owned by [Yzhibin](https://github.com/Yzhibin). No unauthorized use is allowed.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**For Non-Commercial Use:** You are welcome to share and display the photographs for personal, non-commercial purposes, as long as you credit Shrimpkin and include a link to this website or the Shrimpkin Book.
 
-- Configure the top-level `parserOptions` property like this:
+**For Commercial Use:** For any commercial use, please contact me to obtain permission.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
+## Takedown request
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+If you appear in any photograph on this website and would like it to be removed, please contact me.
+
+<img src="https://static.cdninstagram.com/rsrc.php/v3/yM/r/7xwrlYffOBb.png" width=72 /> [**@shrim_pkin**](https://www.instagram.com/shrim_pkin/)
+
+## License
+
+MIT License applies to the React app components in this repository.

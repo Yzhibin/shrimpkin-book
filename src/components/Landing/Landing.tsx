@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import LanguageSelector from '../LanguageSelector/LanguageSelector'
+import List from '../List/List'
 import './Landing.css'
 
 function Landing() {
@@ -7,13 +7,13 @@ function Landing() {
 
   return (
     <div className="landing">
-      <LanguageSelector />
       <div className="greeting-container">
         <div className="greeting-line">{t('greeting')}&nbsp;</div>
         <div className="greeting-line inverted">
           <div className="typewriter">&nbsp;{t('myName')}&nbsp;</div>
         </div>
       </div>
+      <List p="/" />
     </div>
   )
 }
