@@ -1,8 +1,8 @@
 # Shrimpkin Book
 
-Every photographer probably dreams of publishing their own photography book. After years of shooting on film, I’ve got so many pictures I want to share with everyone, ideally printed on paper. While that dream is still _a bit_ out of reach, I made this app as a digital version of my own photography book, simply titled The Shrimpkin Book.
+Every photographer probably dreams of publishing their own photography book. After years of shooting on film, I’ve got so many pictures I want to share with everyone, ideally printed on paper. While that dream is still _a bit_ out of reach, I made this app as a digital version of my own photography book, simply titled Shrimpkin Book.
 
-### [_The Shrimpkin Book_]()
+### [_Shrimpkin Book_](https://yzhibin.github.io/shrimpkin-book/)
 
 ## Copyright
 
