@@ -33,7 +33,7 @@ jobs:
 
         # DOCKER_BUILDKIT environment variable is needed to output build files
         # see: https://docs.docker.com/develop/develop-images/build_enhancements
-        run: DOCKER_BUILDKIT=1 docker build --file Dockerfile --output dist ${{ github.workspace }}
+        run: DOCKER_BUILDKIT=1 docker build --file Dockerfile --build-arg VITE_REPO_URL --output dist ${{ github.workspace }}
 
       - name: Deploy
         uses: crazy-max/ghaction-github-pages@v3
