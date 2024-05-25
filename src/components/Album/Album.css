@@ -1,17 +1,48 @@
 .album-backdrop {
   background-color: var(--black);
   width: 100%;
-  min-height: 86vw;
+  min-height: 75vh;
   margin-top: 15vh;
 }
 
-/* 78vw = 24 * 3 + 1 * 6 */
+/* 90vw = 28vw * 3 + 1vw * 6 */
 .photo {
   background-color: white;
-  width: 24vw;
+  width: 28vw;
   margin: 1vw;
 }
 
 .photos-area {
-  padding: 4vw 11vw;
+  padding: 4vw 5vw;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transition: opacity 0.5s;
+}
+
+.modal img {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .modal img {
+    width: 90%;
+  }
 }

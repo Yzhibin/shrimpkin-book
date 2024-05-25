@@ -24,7 +24,8 @@
   display: inline-block;
   width: 48px;
   height: 24px;
-  line-height: 24px;
+  /* alignment hack */
+  line-height: 23px;
   border: 1px solid var(--black);
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;

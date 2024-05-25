@@ -9,8 +9,10 @@ interface AlbumProps {
 }
 
 function Album({ p }: AlbumProps) {
-  const [files, setFiles] = useState<RepoContent[]>([])
   const params = useParams()
+
+  const [files, setFiles] = useState<RepoContent[]>([])
+  const [show, setShow] = useState<string>()
 
   const fetchData = useCallback(async () => {
     const path = p ?? params?.p
@@ -30,13 +32,33 @@ function Album({ p }: AlbumProps) {
     fetchData()
   }, [fetchData])
 
+  const modalOn = (url: string) => {
+    setShow(url)
+    document.body.classList.add('no-scroll')
+  }
+
+  const modalOff = () => {
+    setShow(undefined)
+    document.body.classList.remove('no-scroll')
+  }
+
   return (
     <div className="album">
       <HomeButton />
+      {show && (
+        <div className="modal" onClick={modalOff}>
+          <img src={show} />
+        </div>
+      )}
       <div className="album-backdrop">
         <div className="photos-area">
           {files.map((f) => (
-            <img className="photo" key={f.name} src={f.download_url} />
+            <img
+              className="photo"
+              key={f.name}
+              src={f.download_url}
+              onClick={() => modalOn(f.download_url)}
+            />
           ))}
         </div>
       </div>

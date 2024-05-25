@@ -17,7 +17,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+# # dist -> is included for GitHub Page
 dist-ssr
 *.local
 

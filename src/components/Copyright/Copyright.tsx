@@ -5,7 +5,7 @@ function Copyright() {
   return (
     <div className="copyright">
       <Link
-        to="https://github.com/Yzhibin/shrimpkin-book"
+        to="https://github.com/Yzhibin/shrimpkin-book?tab=readme-ov-file#shrimpkin-book"
         target="_blank"
         rel="noopener noreferrer"
         style={{ color: 'inherit' }}
