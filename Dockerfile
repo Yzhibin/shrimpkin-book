@@ -14,6 +14,7 @@ COPY .yarn ./.yarn
 RUN yarn install --immutable
 
 ARG VITE_REPO_URL
+ARG VITE_BASE_URL
 
 RUN yarn build
 

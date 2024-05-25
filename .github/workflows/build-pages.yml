@@ -30,10 +30,11 @@ jobs:
       - name: Build the Docker image
         env:
           VITE_REPO_URL: https://api.github.com/repos/Yzhibin/shrimpkin-repo/contents
+          VITE_BASE_URL: shrimpkin-book
 
         # DOCKER_BUILDKIT environment variable is needed to output build files
         # see: https://docs.docker.com/develop/develop-images/build_enhancements
-        run: DOCKER_BUILDKIT=1 docker build --file Dockerfile --build-arg VITE_REPO_URL --output dist ${{ github.workspace }}
+        run: DOCKER_BUILDKIT=1 docker build --file Dockerfile --build-arg VITE_REPO_URL --build-arg VITE_BASE_URL --output dist ${{ github.workspace }}
 
       - name: Deploy
         uses: crazy-max/ghaction-github-pages@v3

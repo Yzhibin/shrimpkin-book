@@ -6,7 +6,7 @@ import LanguageSelector from './components/LanguageSelector/LanguageSelector'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Copyright />
       <LanguageSelector />
       <Routes>
