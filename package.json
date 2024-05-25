@@ -1,7 +1,7 @@
 {
   "name": "shrimpkin-book",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -32,7 +32,7 @@
     "typescript": "^5.2.2",
     "vite": "^5.1.0"
   },
-  "packageManager": "yarn@4.1.0",
+  "packageManager": "yarn@4.2.2",
   "dependenciesMeta": {
     "prettier-plugin-organize-imports@3.2.4": {
       "unplugged": true

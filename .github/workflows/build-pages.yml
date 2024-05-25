@@ -1,0 +1,43 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - src/
+      - public/
+      - index.html
+      - package.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ci-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build static files and push to a branch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build the Docker image
+        # DOCKER_BUILDKIT environment variable is needed to output build files
+        # see: https://docs.docker.com/develop/develop-images/build_enhancements
+        run: DOCKER_BUILDKIT=1 docker build --file Dockerfile --output dist ${{ github.workspace }}
+
+      - name: Deploy
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: pages
+          build_dir: ${{ github.workspace }}/dist
+          absolute_build_dir: true
+          keep_history: true
+          commit_message: Deploy ${{ github.sha }} to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
