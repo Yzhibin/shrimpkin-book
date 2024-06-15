@@ -1,16 +1,32 @@
-import { useEffect, useState } from 'react'
-import i18n from '../../i18n'
+import { useCallback, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSearchParams } from 'react-router-dom'
 import { Lang } from './Lang.types'
-
 import './LanguageSelector.css'
 
 const LanguageSelector = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
+  const { i18n } = useTranslation()
 
-  const chooseLanguage = (lang: Lang) => {
-    i18n.changeLanguage(lang)
-    setSelectedLanguage(lang)
-  }
+  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language)
+  const chooseLanguage = useCallback(
+    (lang: Lang) => {
+      i18n.changeLanguage(lang)
+      setSelectedLanguage(lang)
+    },
+    [i18n],
+  )
+
+  const [searchParams] = useSearchParams()
+  useEffect(() => {
+    const l = searchParams.get('lang')
+    switch (l) {
+      case Lang.en:
+      case Lang.zh:
+        chooseLanguage(l)
+        break
+      default:
+    }
+  }, [searchParams, chooseLanguage])
 
   useEffect(() => {
     switch (selectedLanguage) {

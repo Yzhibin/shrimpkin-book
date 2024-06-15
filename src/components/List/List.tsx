@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { getConfig, getContent } from '../../axios'
-import i18n from '../../i18n'
 import './List.css'
 
 interface ListProps {
@@ -9,6 +9,7 @@ interface ListProps {
 }
 
 function List({ p }: ListProps) {
+  const { i18n } = useTranslation()
   const navigate = useNavigate()
 
   const [dirs, setDirs] = useState<RepoContent[]>([])
@@ -18,6 +19,8 @@ function List({ p }: ListProps) {
     try {
       const c = await getContent(p)
       const d = c?.filter(({ type }) => type === 'dir') ?? []
+      // latest first
+      d.reverse()
       setDirs([...d])
 
       for (const dir of d) {

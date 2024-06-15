@@ -1,19 +1,22 @@
+.album-title {
+  color: white;
+}
+
 .album-backdrop {
   background-color: var(--black);
   width: 100%;
   min-height: 75vh;
   margin-top: 15vh;
+  padding: 4vw 5vw;
 }
 
 /* 90vw = 28vw * 3 + 1vw * 6 */
 .photo {
   background-color: white;
   width: 28vw;
+  height: 28vw;
   margin: 1vw;
-}
-
-.photos-area {
-  padding: 4vw 5vw;
+  display: inline-block;
 }
 
 .modal {

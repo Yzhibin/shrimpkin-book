@@ -9,11 +9,15 @@ export const getContent = async (path: string): Promise<RepoContent[]> => {
 }
 
 export const getConfig = async (path: string): Promise<Conf> => {
-  const res = await repoAPI.get(`${path}/CONF.json`)
-  const file: RepoContent = res?.data
+  try {
+    const res = await repoAPI.get(`${path}/CONF.json`)
+    const file: RepoContent = res?.data
 
-  if (file?.download_url) {
-    return (await repoAPI.get(file?.download_url))?.data
+    if (file?.download_url) {
+      return (await repoAPI.get(file?.download_url))?.data
+    }
+  } catch (e) {
+    console.error(`Failed to fetch CONF.json at ${path}`)
   }
   return {}
 }
