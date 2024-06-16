@@ -1,6 +1,13 @@
 import axios from 'axios'
 const repoAPI = axios.create({
   baseURL: import.meta.env.VITE_REPO_URL,
+  headers: {
+    // this token enable more requests per hour with GitHub API
+    // however, this token should only be provided when running locally
+    Authorization: import.meta.env.VITE_PUBLIC_READ_ACCESS_TOKEN
+      ? `Bearer ${import.meta.env.VITE_PUBLIC_READ_ACCESS_TOKEN}`
+      : undefined,
+  },
 })
 
 export const getContent = async (path: string): Promise<RepoContent[]> => {
@@ -14,7 +21,7 @@ export const getConfig = async (path: string): Promise<Conf> => {
     const file: RepoContent = res?.data
 
     if (file?.download_url) {
-      return (await repoAPI.get(file?.download_url))?.data
+      return (await axios.get(file?.download_url))?.data
     }
   } catch (e) {
     console.error(`Failed to fetch CONF.json at ${path}`)

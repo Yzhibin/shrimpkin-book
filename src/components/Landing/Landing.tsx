@@ -13,7 +13,7 @@ function Landing() {
           <div className="typewriter">&nbsp;{t('myName')}&nbsp;</div>
         </div>
       </div>
-      <List p="/" />
+      <List />
     </div>
   )
 }

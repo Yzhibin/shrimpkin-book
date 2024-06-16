@@ -1,63 +1,36 @@
-import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { getConfig, getContent } from '../../axios'
+import { selectAllAlbums } from '../../store/book/bookSlice'
 import './List.css'
 
-interface ListProps {
-  p: string
-}
-
-function List({ p }: ListProps) {
+function List() {
   const { i18n } = useTranslation()
   const navigate = useNavigate()
 
-  const [dirs, setDirs] = useState<RepoContent[]>([])
-
-  const fetchData = useCallback(async () => {
-    if (!p) return
-    try {
-      const c = await getContent(p)
-      const d = c?.filter(({ type }) => type === 'dir') ?? []
-      // latest first
-      d.reverse()
-      setDirs([...d])
-
-      for (const dir of d) {
-        const conf = await getConfig(dir.path)
-        dir.conf = conf
-      }
-      setDirs([...d])
-    } catch (e) {
-      console.error(`Failed to fetch data from ${p}`)
-    }
-  }, [p])
-
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
+  const albums = useSelector(selectAllAlbums)
 
   return (
     <div className="list-container">
-      {dirs.map((dir) => {
+      {albums.map((album) => {
         let theOne, theOther
-        if (dir.conf) {
+        if (album.conf) {
           if (i18n.language === 'en') {
-            theOne = dir.conf.en
-            theOther = dir.conf.zh
+            theOne = album.conf.en
+            theOther = album.conf.zh
           } else if (i18n.language === 'zh') {
-            theOne = dir.conf.zh
-            theOther = dir.conf.en
+            theOne = album.conf.zh
+            theOther = album.conf.en
           }
         }
 
         return (
           <div
             className="list-item"
-            key={dir.name}
-            onClick={() => navigate(`/a/${dir.name}`)}
+            key={album.id}
+            onClick={() => navigate(`/a/${album.id}`)}
           >
-            {theOne ?? theOther ?? dir.name}
+            {theOne ?? theOther ?? album.id}
           </div>
         )
       })}

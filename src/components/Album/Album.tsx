@@ -1,14 +1,10 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
-import { getConfig, getContent } from '../../axios'
+import { useAppDispatch, useAppSelector } from '../../store'
+import { fetchImages, selectAlbum } from '../../store/book/bookSlice'
 import HomeButton from '../HomeButton/HomeButton'
-import { Lang } from '../LanguageSelector/Lang.types'
 import './Album.css'
-
-interface AlbumProps {
-  p?: string
-}
 
 interface BlankProps {
   n: number
@@ -23,33 +19,20 @@ function Blank({ n }: BlankProps) {
   )
 }
 
-function Album({ p }: AlbumProps) {
+function Album() {
   const params = useParams()
   const { i18n } = useTranslation()
+  const dispatch = useAppDispatch()
 
-  const [files, setFiles] = useState<RepoContent[]>([])
+  const album = useAppSelector((state) => selectAlbum(state, params?.id))
+
   const [show, setShow] = useState<string>()
-  const [conf, setConf] = useState<Conf>({})
-
-  const fetchData = useCallback(async () => {
-    const path = p ?? params?.p
-    if (!path) return
-
-    try {
-      setConf(await getConfig(path))
-      const c = await getContent(path)
-      const d = c?.filter(
-        ({ type, name }) => type === 'file' && !name.startsWith('CONF'),
-      )
-      setFiles(d ?? [])
-    } catch (e) {
-      console.error(`Failed to fetch files from ${path}`)
-    }
-  }, [p, params])
 
   useEffect(() => {
-    fetchData()
-  }, [fetchData])
+    if (album && !album.images) {
+      dispatch(fetchImages(album.id))
+    }
+  }, [album, dispatch])
 
   const modalOn = (url: string) => {
     setShow(url)
@@ -70,17 +53,30 @@ function Album({ p }: AlbumProps) {
         </div>
       )}
       <div className="album-backdrop">
-        <h1 className="album-title">
-          {(i18n.language === Lang.en ? conf.en : conf.zh) ?? '...'}
-        </h1>
+        {album &&
+          (() => {
+            let theOne, theOther
+            if (album.conf) {
+              if (i18n.language === 'en') {
+                theOne = album.conf.en
+                theOther = album.conf.zh
+              } else if (i18n.language === 'zh') {
+                theOne = album.conf.zh
+                theOther = album.conf.en
+              }
+            }
+            return (
+              <h1 className="album-title">{theOne ?? theOther ?? album.id}</h1>
+            )
+          })()}
 
-        {files.length === 0 && <Blank n={9} />}
-        {files.map((f) => (
+        {!album?.images && <Blank n={9} />}
+        {album?.images?.map((url, index) => (
           <img
             className="photo"
-            key={f.name}
-            src={f.download_url}
-            onClick={() => modalOn(f.download_url)}
+            key={`image-${index}`}
+            src={url}
+            onClick={() => modalOn(url)}
           />
         ))}
       </div>
